@@ -1,17 +1,19 @@
-<div class="game d-flex justify-content-center">
+<div class="game">
   <div class="row">
-    <div position="0" class="col-4 game-cell"></div>
-    <div position="1" class="col-4 game-cell"></div>
-    <div position="2" class="col-4 game-cell"></div>
+<!--    @D dirrectly pass possition not event/ what is better -->
+    <div (click)="clickCurrentCell($event)" position="0" class="col-4 game-cell"></div>
+    <div (click)="clickCurrentCell($event)" position="1" class="col-4 game-cell"></div>
+    <div (click)="clickCurrentCell($event)" position="2" class="col-4 game-cell"></div>
   </div>
   <div class="row">
-    <div position="3" class="col-4 game-cell"></div>
-    <div position="4" class="col-4 game-cell"></div>
-    <div position="5" class="col-4 game-cell"></div>
+    <div (click)="clickCurrentCell($event)" position="3" class="col-4 game-cell"></div>
+    <div (click)="clickCurrentCell($event)" position="4" class="col-4 game-cell"></div>
+    <div (click)="clickCurrentCell($event)" position="5" class="col-4 game-cell"></div>
   </div>
   <div class="row">
-    <div position="6" class="col-4 game-cell"></div>
-    <div position="7" class="col-4 game-cell"></div>
-    <div position="8" class="col-4 game-cell"></div>
+    <div (click)="clickCurrentCell($event)" position="6" class="col-4 game-cell"></div>
+    <div (click)="clickCurrentCell($event)" position="7" class="col-4 game-cell"></div>
+    <div (click)="clickCurrentCell($event)" position="8" class="col-4 game-cell"></div>
   </div>
+
 </div>
