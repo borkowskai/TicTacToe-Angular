@@ -1,6 +1,6 @@
 <div class="game">
   <div class="d-flex justify-content-center mb-4">
-    <button mat-raised-button color="accent">play the game</button>
+    <button mat-raised-button color="accent" (click)="startGame()">play the game</button>
   </div>
   <div *ngIf="gameStarted" class="gameBoard">
     <div class="row">
