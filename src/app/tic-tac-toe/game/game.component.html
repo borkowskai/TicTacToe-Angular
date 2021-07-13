@@ -4,20 +4,19 @@
   </div>
   <div *ngIf="gameStarted" class="gameBoard">
     <div class="row">
-      <!--    @D dirrectly pass possition not event/ what is better -->
-      <div (click)="clickCurrentCell($event)" position="0" class="col-4 game-cell"></div>
-      <div (click)="clickCurrentCell($event)" position="1" class="col-4 game-cell"></div>
-      <div (click)="clickCurrentCell($event)" position="2" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event, 0)" position="0" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event, 1)" position="1" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event, 2)" position="2" class="col-4 game-cell"></div>
     </div>
     <div class="row">
-      <div (click)="clickCurrentCell($event)" position="3" class="col-4 game-cell"></div>
-      <div (click)="clickCurrentCell($event)" position="4" class="col-4 game-cell"></div>
-      <div (click)="clickCurrentCell($event)" position="5" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event, 3)" position="3" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event, 4)" position="4" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event, 5)" position="5" class="col-4 game-cell"></div>
     </div>
     <div class="row">
-      <div (click)="clickCurrentCell($event)" position="6" class="col-4 game-cell"></div>
-      <div (click)="clickCurrentCell($event)" position="7" class="col-4 game-cell"></div>
-      <div (click)="clickCurrentCell($event)" position="8" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event, 6)" position="6" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event,7 )" position="7" class="col-4 game-cell"></div>
+      <div (click)="clickCurrentCell($event,8 )" position="8" class="col-4 game-cell"></div>
     </div>
   </div>
 </div>

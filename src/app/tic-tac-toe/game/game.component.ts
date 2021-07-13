@@ -10,8 +10,7 @@ export class GameComponent implements OnInit {
 
   // @D why undefined needed, should go without initialization  in Angular
   private currentTurn: number | undefined;
-  //TODO change to false
-  public gameStarted = true;
+  public gameStarted = false;
   public gameWon = false;
   private positionsPlayer1: number[] = [];
   private positionsPlayer2: number[] = [];
@@ -21,32 +20,15 @@ export class GameComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //  TODO initialize/clean the game
-    this.currentTurn = 1;
   }
 
 
-  // @D possible in Observable ? which form is better?
-  async clickCurrentCell(gameCell: any): Promise<void> {
-    let position = gameCell.currentTarget.getAttribute('position');
-    // console.log( "position" + position.type);
-    // console.log(position);
-
+  clickCurrentCell(gameCell: any, position : number): void {
     if (gameCell.currentTarget.innerHTML == "") {
       this.currentTurn === 1 ? this.positionsPlayer1.push(position) : this.positionsPlayer2.push(position);
       this.currentTurn === 1 ? gameCell.currentTarget.innerHTML = "<p>x</p>" : gameCell.currentTarget.innerHTML = "<p>o</p>";
-      console.log(this.positionsPlayer1);
-      console.log(this.positionsPlayer2);
 
-      //  @D how to get number in the list - currently string
-      // this.positionsPlayer1.push(0)
-      // this.positionsPlayer1.push(1)
-      // let check = this.positionsPlayer1.includes(0,1);
-      // console.log( "position" + typeof this.positionsPlayer1[0]);
-      // console.log(position);
-
-
-      // this.checkIfWinner(this.positionsPlayer1);
+      this.checkIfWinner(this.currentTurn === 1 ? this.positionsPlayer1 : this.positionsPlayer2);
       this.checkIfGameOver();
       this.newTurn();
     }
@@ -61,22 +43,42 @@ export class GameComponent implements OnInit {
   public startGame(): void {
     this.currentTurn = 1;
     this.gameStarted = true;
-    window.location.reload();
   }
 
   private checkIfGameOver(): void {
     if (this.positionsPlayer1.length === 5 && this.positionsPlayer2.length === 4 && !this.gameWon) {
       alert("game over");
-
+      this.startGame();
     }
   }
 
-  private checkIfWinner(arrayOfPlayerFields: number[]): void {
 
-    if (arrayOfPlayerFields) {
-      console.log(arrayOfPlayerFields.includes(0));
-      alert("you won");
+  private checkIfWinner(array: number[]): void {
+    if(array.length >= 2){
+      if (
+        this.isInArray(array, 0,1,2 ) ||
+        this.isInArray(array, 3,4,5 ) ||
+        this.isInArray(array, 6,7,8 ) ||
+        this.isInArray(array, 0,3,6 ) ||
+        this.isInArray(array, 1,4,7 ) ||
+        this.isInArray(array, 2,5,8 ) ||
+        this.isInArray(array, 0,4,8 ) ||
+        this.isInArray(array, 2,4,6 ) ){
+        alert("you won");
+        this.gameWon = true;
+        this.startGame();
+      }
     }
+  }
+
+  private isInArray( arrayOfPlayerFields: number[], firstNumber: number, secondNumber: number, thirdNumber : number): boolean{
+    if(arrayOfPlayerFields.includes(firstNumber) && arrayOfPlayerFields.includes(secondNumber) && arrayOfPlayerFields.includes(thirdNumber)){
+      return true;
+    }
+    else{
+      return false;
+    }
+
   }
 
 
