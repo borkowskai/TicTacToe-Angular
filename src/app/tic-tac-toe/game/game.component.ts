@@ -9,12 +9,14 @@ export class GameComponent implements OnInit {
 
   // @D why undefined needed, should go without initialization  in Angular
   private currentTurn : number | undefined;
+  //TODO change to false
+  public gameStarted = true;
 
   constructor() { }
 
   ngOnInit(): void {
   //  TODO initialize/clean the game
-    this.currentTurn = 1;
+
   }
 
   // @D possible in Observable ? which form is better
@@ -24,13 +26,19 @@ export class GameComponent implements OnInit {
 
     if(gameCell.currentTarget.innerHTML == ""){
       this.currentTurn === 1 ? gameCell.currentTarget.innerHTML= "<p>x</p>": gameCell.currentTarget.innerHTML= "<p>o</p>";
+      this.newTurn();
     }
-    this.newTurn();
+
   }
 
   private newTurn() : void{
     this.currentTurn === 1 ? this.currentTurn = 2 : this.currentTurn = 1;
     console.log("currentTurn" + this.currentTurn);
+  }
+
+  private startGame(): void{
+    this.currentTurn = 1;
+    this.gameStarted = true;
   }
 
 

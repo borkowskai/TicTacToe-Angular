@@ -1,9 +1,27 @@
+$colorPrincipal : grey;
+
 .game-cell {
-  border: 1px solid grey;
+  border: 3px solid $colorPrincipal;
   width: 80px;
   height: 80px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin:0.3px;
+  &:hover,
+  &:focus,
+  &:active {
+    border: 3px solid darken($colorPrincipal, 15%);
+    outline: none ;
+    box-shadow: 0 0 0 2px darken($colorPrincipal, 15%) !important;
+  }
+}
+
+::ng-deep {
+  .mat-body p, .mat-body-1 p, .mat-typography p{
+    font-size: 40px;
+    font-weight: 700;
+    color: grey;
+  }
 }
