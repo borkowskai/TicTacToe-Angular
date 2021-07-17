@@ -2,7 +2,7 @@
   <div class="d-flex justify-content-center mb-4">
     <button mat-raised-button color="accent" (click)="startGame()">play the game</button>
   </div>
-  <div *ngIf="gameStarted" class="gameBoard">
+  <div id="gameBoard" *ngIf="gameStarted">
     <div class="row">
       <div (click)="clickCurrentCell($event, 0)" position="0" class="col-4 game-cell"></div>
       <div (click)="clickCurrentCell($event, 1)" position="1" class="col-4 game-cell"></div>
